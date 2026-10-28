@@ -8,6 +8,7 @@
     "index": "tsx src/index.ts",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "libros": "tsx src/libros.ts",
+    "middleware": "tsx src/middleware.ts",
     "build": "tsc",
     "start": "node dist/index.js"
   },
