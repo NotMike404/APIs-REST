@@ -1,10 +1,12 @@
 import express from 'express';
 import estudiantesRouter from './routes/estudiantes';
+import cors from 'cors';
 
-const app = express(); // Variable: aplicación de Express.
+const app = express();
 app.use(express.json()); // Middleware: permite leer el body JSON de las peticiones.
-const PORT = 3000; // Variable: puerto donde escuchará el servidor.
+const PORT = process.env.PORT ?? 3000;
 
+app.use(cors());
 app.use('/api/estudiantes', estudiantesRouter); // Middleware
 
 app.get("/api/status", (_req, res) => {
