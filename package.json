@@ -10,7 +10,8 @@
     "libros": "tsx src/libros.ts",
     "middleware": "tsx src/middleware.ts",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "swagger": "ts-node src/swagger.ts"
   },
   "keywords": [],
   "author": "",
@@ -19,11 +20,14 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^26.6.5",
+    "@types/swagger-ui-express": "^4.1.8",
+    "swagger-autogen": "^2.23.7",
     "ts-node-dev": "^2.0.0",
     "tsx": "^4.23.15",
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "express": "^5.3.0"
+    "express": "^5.3.0",
+    "swagger-ui-express": "^5.0.1"
   }
 }

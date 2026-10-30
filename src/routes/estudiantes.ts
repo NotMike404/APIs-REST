@@ -14,6 +14,7 @@ const estudiantes: Estudiante[] = [];
 
 // Endpoint GET
 router.get("/", (req, res) => { 
+// #swagger.description = 'Obtiene la lista de estudiantes; permite filtrar por bootcamp'
   const bootcamp = req.query.bootcamp;
 
   if (typeof bootcamp === "string") {
@@ -27,6 +28,7 @@ router.get("/", (req, res) => {
 
 // Endpoint GET/ID
 router.get("/:id", (req, res) => { 
+  // #swagger.description = 'Obtiene un estudiante por su ID'
   const id = Number(req.params.id);
   const estudiante = estudiantes.find((estudiante) => estudiante.id === id);
 
@@ -38,7 +40,8 @@ router.get("/:id", (req, res) => {
 });
 
 // Endpoint POST
-router.post("/", (req, res) => {
+router.post("/", (req, res) => { 
+  // #swagger.description = 'Crea un nuevo estudiante'
   if (!req.body || !req.body.email) {
     return res.status(400).json({ mensaje: "El email es obligatorio." });
   }
@@ -54,7 +57,8 @@ router.post("/", (req, res) => {
 });
 
 // Endpoint PUT
-router.put("/:id", (req, res) => {
+router.put("/:id", (req, res) => { 
+  // #swagger.description = 'Actualiza los datos de un estudiante'
   const id = Number(req.params.id);
   const estudiante = estudiantes.find((estudiante) => estudiante.id === id);
 
@@ -63,13 +67,14 @@ router.put("/:id", (req, res) => {
   }
 
   const datos = req.body as Omit<Estudiante, "id">;
-  Object.assign(estudiante, datos); // Actualiza los datos sin cambiar el ID.
+  Object.assign(estudiante, datos); 
 
   res.json(estudiante);
 });
 
 // Endpoint DELETE
-router.delete("/:id", (req, res) => {
+router.delete("/:id", (req, res) => { 
+  // #swagger.description = 'Elimina un estudiante por su ID'
   const id = Number(req.params.id);
   const indice = estudiantes.findIndex((estudiante) => estudiante.id === id);
 
